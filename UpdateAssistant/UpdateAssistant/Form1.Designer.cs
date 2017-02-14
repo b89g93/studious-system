@@ -69,13 +69,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabUpdateCopy = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btnDeleteUpdateDirName = new System.Windows.Forms.Button();
-            this.listViewUpdateDirName = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnAddToUpdatePackageList = new System.Windows.Forms.Button();
             this.btnDeleteUpdateFileName = new System.Windows.Forms.Button();
-            this.listViewUpdateFileName = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label20 = new System.Windows.Forms.Label();
+            this.listViewUpdatePackageInfo = new System.Windows.Forms.ListView();
+            this.textBoxSourceDir = new System.Windows.Forms.TextBox();
+            this.listViewUpdateSourceDirInfo = new System.Windows.Forms.ListView();
             this.btnSelectUpdateDir = new System.Windows.Forms.Button();
             this.tabUpdateDB = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -141,7 +141,12 @@
             this.btnAddCleanTempFileName = new System.Windows.Forms.Button();
             this.textBoxCleanTempFileName = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.btnSelectUpdateFile = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuItemOpenProject = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.tabUpdateProcess.SuspendLayout();
             this.tabTerminateProgress.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -153,7 +158,6 @@
             this.groupBox5.SuspendLayout();
             this.tabUpdateCopy.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.tabUpdateDB.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -163,6 +167,7 @@
             this.tabCleanUp.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox13.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabUpdateProcess
@@ -176,10 +181,10 @@
             this.tabUpdateProcess.Controls.Add(this.tabCleanUp);
             this.tabUpdateProcess.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabUpdateProcess.ItemSize = new System.Drawing.Size(100, 40);
-            this.tabUpdateProcess.Location = new System.Drawing.Point(20, 21);
+            this.tabUpdateProcess.Location = new System.Drawing.Point(0, 28);
             this.tabUpdateProcess.Name = "tabUpdateProcess";
             this.tabUpdateProcess.SelectedIndex = 0;
-            this.tabUpdateProcess.Size = new System.Drawing.Size(733, 493);
+            this.tabUpdateProcess.Size = new System.Drawing.Size(768, 583);
             this.tabUpdateProcess.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabUpdateProcess.TabIndex = 0;
             // 
@@ -190,7 +195,7 @@
             this.tabTerminateProgress.Location = new System.Drawing.Point(4, 44);
             this.tabTerminateProgress.Name = "tabTerminateProgress";
             this.tabTerminateProgress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTerminateProgress.Size = new System.Drawing.Size(725, 445);
+            this.tabTerminateProgress.Size = new System.Drawing.Size(760, 535);
             this.tabTerminateProgress.TabIndex = 0;
             this.tabTerminateProgress.Text = "终止进程";
             this.tabTerminateProgress.UseVisualStyleBackColor = true;
@@ -204,7 +209,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(365, 21);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(340, 410);
+            this.groupBox2.Size = new System.Drawing.Size(340, 489);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "JAVA进程";
@@ -215,7 +220,7 @@
             this.columnJavaTerminatProgressName});
             this.listViewTerminatJavaProgress.Location = new System.Drawing.Point(18, 57);
             this.listViewTerminatJavaProgress.Name = "listViewTerminatJavaProgress";
-            this.listViewTerminatJavaProgress.Size = new System.Drawing.Size(304, 344);
+            this.listViewTerminatJavaProgress.Size = new System.Drawing.Size(304, 426);
             this.listViewTerminatJavaProgress.TabIndex = 6;
             this.listViewTerminatJavaProgress.UseCompatibleStateImageBehavior = false;
             this.listViewTerminatJavaProgress.View = System.Windows.Forms.View.Details;
@@ -271,7 +276,7 @@
             this.groupBox1.Location = new System.Drawing.Point(20, 21);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.groupBox1.Size = new System.Drawing.Size(340, 410);
+            this.groupBox1.Size = new System.Drawing.Size(340, 489);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "普通进程";
@@ -292,7 +297,7 @@
             this.columnTerminateProgress});
             this.listViewTermintProgress.Location = new System.Drawing.Point(15, 57);
             this.listViewTermintProgress.Name = "listViewTermintProgress";
-            this.listViewTermintProgress.Size = new System.Drawing.Size(304, 344);
+            this.listViewTermintProgress.Size = new System.Drawing.Size(304, 426);
             this.listViewTermintProgress.TabIndex = 3;
             this.listViewTermintProgress.UseCompatibleStateImageBehavior = false;
             this.listViewTermintProgress.View = System.Windows.Forms.View.Details;
@@ -335,7 +340,7 @@
             this.tabBackup.Location = new System.Drawing.Point(4, 44);
             this.tabBackup.Name = "tabBackup";
             this.tabBackup.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBackup.Size = new System.Drawing.Size(725, 445);
+            this.tabBackup.Size = new System.Drawing.Size(721, 516);
             this.tabBackup.TabIndex = 2;
             this.tabBackup.Text = "备份原始版本";
             this.tabBackup.UseVisualStyleBackColor = true;
@@ -349,7 +354,7 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Location = new System.Drawing.Point(365, 21);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(340, 410);
+            this.groupBox4.Size = new System.Drawing.Size(340, 489);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "忽略安装根目录下文件（这里设置的文件将不会备份）";
@@ -370,7 +375,7 @@
             this.columnIgnoreBackupFileName});
             this.listViewIgnoreBackupFileName.Location = new System.Drawing.Point(18, 56);
             this.listViewIgnoreBackupFileName.Name = "listViewIgnoreBackupFileName";
-            this.listViewIgnoreBackupFileName.Size = new System.Drawing.Size(304, 344);
+            this.listViewIgnoreBackupFileName.Size = new System.Drawing.Size(304, 427);
             this.listViewIgnoreBackupFileName.TabIndex = 13;
             this.listViewIgnoreBackupFileName.UseCompatibleStateImageBehavior = false;
             this.listViewIgnoreBackupFileName.View = System.Windows.Forms.View.Details;
@@ -415,7 +420,7 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Location = new System.Drawing.Point(20, 21);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(340, 410);
+            this.groupBox3.Size = new System.Drawing.Size(340, 489);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "备份安装根目录文件夹";
@@ -436,7 +441,7 @@
             this.columnBackupDirName});
             this.listViewBackupDirName.Location = new System.Drawing.Point(18, 56);
             this.listViewBackupDirName.Name = "listViewBackupDirName";
-            this.listViewBackupDirName.Size = new System.Drawing.Size(304, 344);
+            this.listViewBackupDirName.Size = new System.Drawing.Size(304, 427);
             this.listViewBackupDirName.TabIndex = 8;
             this.listViewBackupDirName.UseCompatibleStateImageBehavior = false;
             this.listViewBackupDirName.View = System.Windows.Forms.View.Details;
@@ -478,7 +483,7 @@
             this.tabCleanOldVersion.Location = new System.Drawing.Point(4, 44);
             this.tabCleanOldVersion.Name = "tabCleanOldVersion";
             this.tabCleanOldVersion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCleanOldVersion.Size = new System.Drawing.Size(725, 445);
+            this.tabCleanOldVersion.Size = new System.Drawing.Size(721, 516);
             this.tabCleanOldVersion.TabIndex = 3;
             this.tabCleanOldVersion.Text = "清理原始版本";
             this.tabCleanOldVersion.UseVisualStyleBackColor = true;
@@ -492,7 +497,7 @@
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Location = new System.Drawing.Point(20, 21);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(340, 410);
+            this.groupBox5.Size = new System.Drawing.Size(340, 489);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "清理安装根目录文件夹";
@@ -513,7 +518,7 @@
             this.columnHeader1});
             this.listViewCleanDirName.Location = new System.Drawing.Point(18, 56);
             this.listViewCleanDirName.Name = "listViewCleanDirName";
-            this.listViewCleanDirName.Size = new System.Drawing.Size(304, 344);
+            this.listViewCleanDirName.Size = new System.Drawing.Size(304, 427);
             this.listViewCleanDirName.TabIndex = 8;
             this.listViewCleanDirName.UseCompatibleStateImageBehavior = false;
             this.listViewCleanDirName.View = System.Windows.Forms.View.Details;
@@ -553,68 +558,54 @@
             // 
             this.tabUpdateCopy.BackColor = System.Drawing.Color.Transparent;
             this.tabUpdateCopy.Controls.Add(this.groupBox6);
-            this.tabUpdateCopy.Controls.Add(this.groupBox7);
             this.tabUpdateCopy.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabUpdateCopy.Location = new System.Drawing.Point(4, 44);
             this.tabUpdateCopy.Name = "tabUpdateCopy";
             this.tabUpdateCopy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdateCopy.Size = new System.Drawing.Size(725, 445);
+            this.tabUpdateCopy.Size = new System.Drawing.Size(721, 516);
             this.tabUpdateCopy.TabIndex = 1;
             this.tabUpdateCopy.Text = "升级拷贝";
             this.tabUpdateCopy.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.btnDeleteUpdateDirName);
-            this.groupBox6.Controls.Add(this.listViewUpdateDirName);
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.btnAddToUpdatePackageList);
+            this.groupBox6.Controls.Add(this.btnDeleteUpdateFileName);
+            this.groupBox6.Controls.Add(this.label20);
+            this.groupBox6.Controls.Add(this.listViewUpdatePackageInfo);
+            this.groupBox6.Controls.Add(this.textBoxSourceDir);
+            this.groupBox6.Controls.Add(this.listViewUpdateSourceDirInfo);
             this.groupBox6.Controls.Add(this.btnSelectUpdateDir);
-            this.groupBox6.Location = new System.Drawing.Point(12, 32);
+            this.groupBox6.Location = new System.Drawing.Point(12, 19);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(340, 410);
+            this.groupBox6.Size = new System.Drawing.Size(707, 491);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "升级包根目录下的文件夹";
+            this.groupBox6.Text = "升级包内容选择";
             // 
-            // btnDeleteUpdateDirName
+            // label21
             // 
-            this.btnDeleteUpdateDirName.Location = new System.Drawing.Point(278, 27);
-            this.btnDeleteUpdateDirName.Name = "btnDeleteUpdateDirName";
-            this.btnDeleteUpdateDirName.Size = new System.Drawing.Size(45, 23);
-            this.btnDeleteUpdateDirName.TabIndex = 9;
-            this.btnDeleteUpdateDirName.Text = "删除";
-            this.btnDeleteUpdateDirName.UseVisualStyleBackColor = true;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(337, 34);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(101, 12);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "升级包内文件列表";
             // 
-            // listViewUpdateDirName
+            // btnAddToUpdatePackageList
             // 
-            this.listViewUpdateDirName.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2});
-            this.listViewUpdateDirName.Location = new System.Drawing.Point(18, 56);
-            this.listViewUpdateDirName.Name = "listViewUpdateDirName";
-            this.listViewUpdateDirName.Size = new System.Drawing.Size(305, 344);
-            this.listViewUpdateDirName.TabIndex = 8;
-            this.listViewUpdateDirName.UseCompatibleStateImageBehavior = false;
-            this.listViewUpdateDirName.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "文件夹名称列表";
-            this.columnHeader2.Width = 299;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.btnSelectUpdateFile);
-            this.groupBox7.Controls.Add(this.btnDeleteUpdateFileName);
-            this.groupBox7.Controls.Add(this.listViewUpdateFileName);
-            this.groupBox7.Location = new System.Drawing.Point(358, 32);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(340, 410);
-            this.groupBox7.TabIndex = 3;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "升级包根目录下的文件";
+            this.btnAddToUpdatePackageList.Location = new System.Drawing.Point(285, 257);
+            this.btnAddToUpdatePackageList.Name = "btnAddToUpdatePackageList";
+            this.btnAddToUpdatePackageList.Size = new System.Drawing.Size(48, 23);
+            this.btnAddToUpdatePackageList.TabIndex = 15;
+            this.btnAddToUpdatePackageList.Text = ">>";
+            this.btnAddToUpdatePackageList.UseVisualStyleBackColor = true;
+            this.btnAddToUpdatePackageList.Click += new System.EventHandler(this.btnAddToUpdatePackageList_Click);
             // 
             // btnDeleteUpdateFileName
             // 
-            this.btnDeleteUpdateFileName.Location = new System.Drawing.Point(265, 27);
+            this.btnDeleteUpdateFileName.Location = new System.Drawing.Point(646, 27);
             this.btnDeleteUpdateFileName.Name = "btnDeleteUpdateFileName";
             this.btnDeleteUpdateFileName.Size = new System.Drawing.Size(45, 23);
             this.btnDeleteUpdateFileName.TabIndex = 14;
@@ -622,29 +613,47 @@
             this.btnDeleteUpdateFileName.UseVisualStyleBackColor = true;
             this.btnDeleteUpdateFileName.Click += new System.EventHandler(this.btnDeleteUpdateFileName_Click);
             // 
-            // listViewUpdateFileName
+            // label20
             // 
-            this.listViewUpdateFileName.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3});
-            this.listViewUpdateFileName.Location = new System.Drawing.Point(18, 56);
-            this.listViewUpdateFileName.Name = "listViewUpdateFileName";
-            this.listViewUpdateFileName.Size = new System.Drawing.Size(304, 344);
-            this.listViewUpdateFileName.TabIndex = 13;
-            this.listViewUpdateFileName.UseCompatibleStateImageBehavior = false;
-            this.listViewUpdateFileName.View = System.Windows.Forms.View.Details;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 32);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(41, 12);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "源目录";
             // 
-            // columnHeader3
+            // listViewUpdatePackageInfo
             // 
-            this.columnHeader3.Text = "文件名称列表";
-            this.columnHeader3.Width = 299;
+            this.listViewUpdatePackageInfo.Location = new System.Drawing.Point(339, 56);
+            this.listViewUpdatePackageInfo.Name = "listViewUpdatePackageInfo";
+            this.listViewUpdatePackageInfo.Size = new System.Drawing.Size(352, 429);
+            this.listViewUpdatePackageInfo.TabIndex = 13;
+            this.listViewUpdatePackageInfo.TileSize = new System.Drawing.Size(600, 25);
+            this.listViewUpdatePackageInfo.UseCompatibleStateImageBehavior = false;
+            this.listViewUpdatePackageInfo.View = System.Windows.Forms.View.Tile;
+            // 
+            // textBoxSourceDir
+            // 
+            this.textBoxSourceDir.Location = new System.Drawing.Point(61, 29);
+            this.textBoxSourceDir.Name = "textBoxSourceDir";
+            this.textBoxSourceDir.Size = new System.Drawing.Size(168, 21);
+            this.textBoxSourceDir.TabIndex = 9;
+            // 
+            // listViewUpdateSourceDirInfo
+            // 
+            this.listViewUpdateSourceDirInfo.Location = new System.Drawing.Point(18, 56);
+            this.listViewUpdateSourceDirInfo.Name = "listViewUpdateSourceDirInfo";
+            this.listViewUpdateSourceDirInfo.Size = new System.Drawing.Size(258, 429);
+            this.listViewUpdateSourceDirInfo.TabIndex = 8;
+            this.listViewUpdateSourceDirInfo.UseCompatibleStateImageBehavior = false;
             // 
             // btnSelectUpdateDir
             // 
-            this.btnSelectUpdateDir.Location = new System.Drawing.Point(150, 27);
+            this.btnSelectUpdateDir.Location = new System.Drawing.Point(235, 29);
             this.btnSelectUpdateDir.Name = "btnSelectUpdateDir";
-            this.btnSelectUpdateDir.Size = new System.Drawing.Size(122, 23);
+            this.btnSelectUpdateDir.Size = new System.Drawing.Size(41, 23);
             this.btnSelectUpdateDir.TabIndex = 0;
-            this.btnSelectUpdateDir.Text = "选择升级包文件夹";
+            this.btnSelectUpdateDir.Text = "选择";
             this.btnSelectUpdateDir.UseVisualStyleBackColor = true;
             this.btnSelectUpdateDir.Click += new System.EventHandler(this.btnSelectUpdateFile_Click);
             // 
@@ -654,7 +663,7 @@
             this.tabUpdateDB.Location = new System.Drawing.Point(4, 44);
             this.tabUpdateDB.Name = "tabUpdateDB";
             this.tabUpdateDB.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdateDB.Size = new System.Drawing.Size(725, 445);
+            this.tabUpdateDB.Size = new System.Drawing.Size(721, 516);
             this.tabUpdateDB.TabIndex = 4;
             this.tabUpdateDB.Text = "DB升级";
             this.tabUpdateDB.UseVisualStyleBackColor = true;
@@ -665,7 +674,7 @@
             this.groupBox8.Controls.Add(this.radioDB);
             this.groupBox8.Location = new System.Drawing.Point(17, 18);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(704, 410);
+            this.groupBox8.Size = new System.Drawing.Size(704, 480);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "数据库升级配置";
@@ -704,7 +713,7 @@
             this.groupBox9.Controls.Add(this.btnAddDBUpdateScript_1);
             this.groupBox9.Location = new System.Drawing.Point(22, 45);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(660, 359);
+            this.groupBox9.Size = new System.Drawing.Size(660, 429);
             this.groupBox9.TabIndex = 2;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "添加数据库升级脚本（升级时将按照顺序执行脚本）";
@@ -749,6 +758,7 @@
             this.btnAddDBUpdateScript_7.TabIndex = 15;
             this.btnAddDBUpdateScript_7.Text = "添加";
             this.btnAddDBUpdateScript_7.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_7.Click += new System.EventHandler(this.btnAddDBUpdateScript_7_Click);
             // 
             // btnAddDBUpdateScript_2
             // 
@@ -758,6 +768,7 @@
             this.btnAddDBUpdateScript_2.TabIndex = 15;
             this.btnAddDBUpdateScript_2.Text = "添加";
             this.btnAddDBUpdateScript_2.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_2.Click += new System.EventHandler(this.btnAddDBUpdateScript_2_Click);
             // 
             // textBoxDBUpdateScript_7
             // 
@@ -799,6 +810,7 @@
             this.btnAddDBUpdateScript_8.TabIndex = 12;
             this.btnAddDBUpdateScript_8.Text = "添加";
             this.btnAddDBUpdateScript_8.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_8.Click += new System.EventHandler(this.btnAddDBUpdateScript_8_Click);
             // 
             // btnAddDBUpdateScript_3
             // 
@@ -808,6 +820,7 @@
             this.btnAddDBUpdateScript_3.TabIndex = 12;
             this.btnAddDBUpdateScript_3.Text = "添加";
             this.btnAddDBUpdateScript_3.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_3.Click += new System.EventHandler(this.btnAddDBUpdateScript_3_Click);
             // 
             // textBoxDBUpdateScript_8
             // 
@@ -849,6 +862,7 @@
             this.btnAddDBUpdateScript_9.TabIndex = 9;
             this.btnAddDBUpdateScript_9.Text = "添加";
             this.btnAddDBUpdateScript_9.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_9.Click += new System.EventHandler(this.btnAddDBUpdateScript_9_Click);
             // 
             // btnAddDBUpdateScript_4
             // 
@@ -858,6 +872,7 @@
             this.btnAddDBUpdateScript_4.TabIndex = 9;
             this.btnAddDBUpdateScript_4.Text = "添加";
             this.btnAddDBUpdateScript_4.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_4.Click += new System.EventHandler(this.btnAddDBUpdateScript_4_Click);
             // 
             // textBoxDBUpdateScript_9
             // 
@@ -899,6 +914,7 @@
             this.btnAddDBUpdateScript_10.TabIndex = 6;
             this.btnAddDBUpdateScript_10.Text = "添加";
             this.btnAddDBUpdateScript_10.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_10.Click += new System.EventHandler(this.btnAddDBUpdateScript_10_Click);
             // 
             // textBoxDBUpdateScript_10
             // 
@@ -915,6 +931,7 @@
             this.btnAddDBUpdateScript_5.TabIndex = 6;
             this.btnAddDBUpdateScript_5.Text = "添加";
             this.btnAddDBUpdateScript_5.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_5.Click += new System.EventHandler(this.btnAddDBUpdateScript_5_Click);
             // 
             // label6
             // 
@@ -940,6 +957,7 @@
             this.btnAddDBUpdateScript_6.TabIndex = 3;
             this.btnAddDBUpdateScript_6.Text = "添加";
             this.btnAddDBUpdateScript_6.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_6.Click += new System.EventHandler(this.btnAddDBUpdateScript_6_Click);
             // 
             // label7
             // 
@@ -958,6 +976,7 @@
             this.btnAddDBUpdateScript_1.TabIndex = 3;
             this.btnAddDBUpdateScript_1.Text = "添加";
             this.btnAddDBUpdateScript_1.UseVisualStyleBackColor = true;
+            this.btnAddDBUpdateScript_1.Click += new System.EventHandler(this.btnAddDBUpdateScript_1_Click);
             // 
             // radioDB
             // 
@@ -977,7 +996,7 @@
             this.tabStartProgress.Location = new System.Drawing.Point(4, 44);
             this.tabStartProgress.Name = "tabStartProgress";
             this.tabStartProgress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStartProgress.Size = new System.Drawing.Size(725, 445);
+            this.tabStartProgress.Size = new System.Drawing.Size(721, 516);
             this.tabStartProgress.TabIndex = 5;
             this.tabStartProgress.Text = "启动进程";
             this.tabStartProgress.UseVisualStyleBackColor = true;
@@ -992,10 +1011,10 @@
             this.groupBox11.Location = new System.Drawing.Point(364, 29);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.groupBox11.Size = new System.Drawing.Size(340, 410);
+            this.groupBox11.Size = new System.Drawing.Size(340, 481);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Windows服务";
+            this.groupBox11.Text = "Windows服务（按照添加顺序启动）";
             // 
             // btnDeleteWindowsServiceName
             // 
@@ -1005,6 +1024,7 @@
             this.btnDeleteWindowsServiceName.TabIndex = 4;
             this.btnDeleteWindowsServiceName.Text = "删除";
             this.btnDeleteWindowsServiceName.UseVisualStyleBackColor = true;
+            this.btnDeleteWindowsServiceName.Click += new System.EventHandler(this.btnDeleteWindowsServiceName_Click);
             // 
             // listViewStartWindowsServiceName
             // 
@@ -1012,7 +1032,7 @@
             this.columnStartWindowsServiceName});
             this.listViewStartWindowsServiceName.Location = new System.Drawing.Point(15, 57);
             this.listViewStartWindowsServiceName.Name = "listViewStartWindowsServiceName";
-            this.listViewStartWindowsServiceName.Size = new System.Drawing.Size(304, 344);
+            this.listViewStartWindowsServiceName.Size = new System.Drawing.Size(304, 418);
             this.listViewStartWindowsServiceName.TabIndex = 3;
             this.listViewStartWindowsServiceName.UseCompatibleStateImageBehavior = false;
             this.listViewStartWindowsServiceName.View = System.Windows.Forms.View.Details;
@@ -1030,6 +1050,7 @@
             this.btnStartWindowsServiceName.TabIndex = 2;
             this.btnStartWindowsServiceName.Text = "添加";
             this.btnStartWindowsServiceName.UseVisualStyleBackColor = true;
+            this.btnStartWindowsServiceName.Click += new System.EventHandler(this.btnStartWindowsServiceName_Click);
             // 
             // textBoxStartWindowsServiceName
             // 
@@ -1057,10 +1078,10 @@
             this.groupBox10.Location = new System.Drawing.Point(21, 29);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            this.groupBox10.Size = new System.Drawing.Size(337, 410);
+            this.groupBox10.Size = new System.Drawing.Size(337, 481);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "可执行程序 ( 脚本名称）";
+            this.groupBox10.Text = "可执行程序或脚本名称（按照添加顺序启动）";
             // 
             // btnDeleteProcessName
             // 
@@ -1070,6 +1091,7 @@
             this.btnDeleteProcessName.TabIndex = 4;
             this.btnDeleteProcessName.Text = "删除";
             this.btnDeleteProcessName.UseVisualStyleBackColor = true;
+            this.btnDeleteProcessName.Click += new System.EventHandler(this.btnDeleteProcessName_Click);
             // 
             // listViewStartExecuteProcessName
             // 
@@ -1077,7 +1099,7 @@
             this.columnStartExecutProcessName});
             this.listViewStartExecuteProcessName.Location = new System.Drawing.Point(15, 57);
             this.listViewStartExecuteProcessName.Name = "listViewStartExecuteProcessName";
-            this.listViewStartExecuteProcessName.Size = new System.Drawing.Size(304, 344);
+            this.listViewStartExecuteProcessName.Size = new System.Drawing.Size(304, 418);
             this.listViewStartExecuteProcessName.TabIndex = 3;
             this.listViewStartExecuteProcessName.UseCompatibleStateImageBehavior = false;
             this.listViewStartExecuteProcessName.View = System.Windows.Forms.View.Details;
@@ -1095,6 +1117,7 @@
             this.btnAddStartProcessName.TabIndex = 2;
             this.btnAddStartProcessName.Text = "添加";
             this.btnAddStartProcessName.UseVisualStyleBackColor = true;
+            this.btnAddStartProcessName.Click += new System.EventHandler(this.btnAddStartProcessName_Click);
             // 
             // textBoxStartProcessName
             // 
@@ -1118,7 +1141,7 @@
             this.tabCleanUp.Controls.Add(this.groupBox13);
             this.tabCleanUp.Location = new System.Drawing.Point(4, 44);
             this.tabCleanUp.Name = "tabCleanUp";
-            this.tabCleanUp.Size = new System.Drawing.Size(725, 445);
+            this.tabCleanUp.Size = new System.Drawing.Size(721, 516);
             this.tabCleanUp.TabIndex = 6;
             this.tabCleanUp.Text = "清理临时文件";
             this.tabCleanUp.UseVisualStyleBackColor = true;
@@ -1132,7 +1155,7 @@
             this.groupBox12.Controls.Add(this.label18);
             this.groupBox12.Location = new System.Drawing.Point(19, 18);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(340, 410);
+            this.groupBox12.Size = new System.Drawing.Size(340, 485);
             this.groupBox12.TabIndex = 2;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "清理安装根目录文件夹";
@@ -1145,6 +1168,7 @@
             this.btnDeleteCleanTempDirName.TabIndex = 9;
             this.btnDeleteCleanTempDirName.Text = "删除";
             this.btnDeleteCleanTempDirName.UseVisualStyleBackColor = true;
+            this.btnDeleteCleanTempDirName.Click += new System.EventHandler(this.btnDeleteCleanTempDirName_Click);
             // 
             // listViewCleanTempDir
             // 
@@ -1152,7 +1176,7 @@
             this.columnHeader5});
             this.listViewCleanTempDir.Location = new System.Drawing.Point(18, 56);
             this.listViewCleanTempDir.Name = "listViewCleanTempDir";
-            this.listViewCleanTempDir.Size = new System.Drawing.Size(304, 344);
+            this.listViewCleanTempDir.Size = new System.Drawing.Size(304, 423);
             this.listViewCleanTempDir.TabIndex = 8;
             this.listViewCleanTempDir.UseCompatibleStateImageBehavior = false;
             this.listViewCleanTempDir.View = System.Windows.Forms.View.Details;
@@ -1170,6 +1194,7 @@
             this.btnAddCleanTempDirName.TabIndex = 7;
             this.btnAddCleanTempDirName.Text = "添加";
             this.btnAddCleanTempDirName.UseVisualStyleBackColor = true;
+            this.btnAddCleanTempDirName.Click += new System.EventHandler(this.btnAddCleanTempDirName_Click);
             // 
             // textBoxCleanTempDirName
             // 
@@ -1196,7 +1221,7 @@
             this.groupBox13.Controls.Add(this.label19);
             this.groupBox13.Location = new System.Drawing.Point(364, 18);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(340, 410);
+            this.groupBox13.Size = new System.Drawing.Size(340, 485);
             this.groupBox13.TabIndex = 3;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "清理装根目录下文件";
@@ -1209,6 +1234,7 @@
             this.btnDeleteCleanTempFileName.TabIndex = 14;
             this.btnDeleteCleanTempFileName.Text = "删除";
             this.btnDeleteCleanTempFileName.UseVisualStyleBackColor = true;
+            this.btnDeleteCleanTempFileName.Click += new System.EventHandler(this.btnDeleteCleanTempFileName_Click);
             // 
             // listViewCleanTempFile
             // 
@@ -1216,7 +1242,7 @@
             this.columnHeader4});
             this.listViewCleanTempFile.Location = new System.Drawing.Point(18, 56);
             this.listViewCleanTempFile.Name = "listViewCleanTempFile";
-            this.listViewCleanTempFile.Size = new System.Drawing.Size(304, 344);
+            this.listViewCleanTempFile.Size = new System.Drawing.Size(304, 423);
             this.listViewCleanTempFile.TabIndex = 13;
             this.listViewCleanTempFile.UseCompatibleStateImageBehavior = false;
             this.listViewCleanTempFile.View = System.Windows.Forms.View.Details;
@@ -1234,6 +1260,7 @@
             this.btnAddCleanTempFileName.TabIndex = 12;
             this.btnAddCleanTempFileName.Text = "添加";
             this.btnAddCleanTempFileName.UseVisualStyleBackColor = true;
+            this.btnAddCleanTempFileName.Click += new System.EventHandler(this.btnAddCleanTempFileName_Click);
             // 
             // textBoxCleanTempFileName
             // 
@@ -1251,22 +1278,59 @@
             this.label19.TabIndex = 10;
             this.label19.Text = "名称";
             // 
-            // btnSelectUpdateFile
+            // menuStrip1
             // 
-            this.btnSelectUpdateFile.Location = new System.Drawing.Point(149, 27);
-            this.btnSelectUpdateFile.Name = "btnSelectUpdateFile";
-            this.btnSelectUpdateFile.Size = new System.Drawing.Size(110, 23);
-            this.btnSelectUpdateFile.TabIndex = 15;
-            this.btnSelectUpdateFile.Text = "选择升级包文件";
-            this.btnSelectUpdateFile.UseVisualStyleBackColor = true;
-            this.btnSelectUpdateFile.Click += new System.EventHandler(this.btnSelectUpdateFile_Click_1);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemOpenProject});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(768, 25);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuItemOpenProject
+            // 
+            this.menuItemOpenProject.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemNew,
+            this.ToolStripMenuItem,
+            this.menuItemSaveAs,
+            this.menuItemQuit});
+            this.menuItemOpenProject.Name = "menuItemOpenProject";
+            this.menuItemOpenProject.Size = new System.Drawing.Size(44, 21);
+            this.menuItemOpenProject.Text = "文件";
+            // 
+            // menuItemNew
+            // 
+            this.menuItemNew.Name = "menuItemNew";
+            this.menuItemNew.Size = new System.Drawing.Size(152, 22);
+            this.menuItemNew.Text = "新建";
+            // 
+            // ToolStripMenuItem
+            // 
+            this.ToolStripMenuItem.Name = "ToolStripMenuItem";
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem.Text = "打开";
+            // 
+            // menuItemSaveAs
+            // 
+            this.menuItemSaveAs.Name = "menuItemSaveAs";
+            this.menuItemSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.menuItemSaveAs.Text = "另存为";
+            // 
+            // menuItemQuit
+            // 
+            this.menuItemQuit.Name = "menuItemQuit";
+            this.menuItemQuit.Size = new System.Drawing.Size(152, 22);
+            this.menuItemQuit.Text = "退出";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(776, 557);
+            this.ClientSize = new System.Drawing.Size(768, 623);
             this.Controls.Add(this.tabUpdateProcess);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabUpdateProcess.ResumeLayout(false);
@@ -1285,7 +1349,7 @@
             this.groupBox5.PerformLayout();
             this.tabUpdateCopy.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.tabUpdateDB.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -1301,7 +1365,10 @@
             this.groupBox12.PerformLayout();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1351,13 +1418,6 @@
         private System.Windows.Forms.TextBox textBoxCleanDirName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button btnDeleteUpdateDirName;
-        private System.Windows.Forms.ListView listViewUpdateDirName;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button btnDeleteUpdateFileName;
-        private System.Windows.Forms.ListView listViewUpdateFileName;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btnSelectUpdateDir;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox9;
@@ -1420,7 +1480,19 @@
         private System.Windows.Forms.Button btnAddCleanTempFileName;
         private System.Windows.Forms.TextBox textBoxCleanTempFileName;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button btnSelectUpdateFile;
+        private System.Windows.Forms.ListView listViewUpdateSourceDirInfo;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBoxSourceDir;
+        private System.Windows.Forms.Button btnAddToUpdatePackageList;
+        private System.Windows.Forms.Button btnDeleteUpdateFileName;
+        private System.Windows.Forms.ListView listViewUpdatePackageInfo;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemOpenProject;
+        private System.Windows.Forms.ToolStripMenuItem menuItemNew;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItemSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem menuItemQuit;
     }
 }
 
