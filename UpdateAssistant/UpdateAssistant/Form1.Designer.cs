@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabUpdateProcess = new System.Windows.Forms.TabControl();
             this.tabTerminateProgress = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -146,7 +147,18 @@
             this.menuItemNew = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemCreateUpdatePackage = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemQuit = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripOpen = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripCreateUpdatePackage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripProgressBarCreateUpdatePackage = new System.Windows.Forms.ToolStripProgressBar();
             this.tabUpdateProcess.SuspendLayout();
             this.tabTerminateProgress.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -168,6 +180,8 @@
             this.groupBox12.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabUpdateProcess
@@ -181,10 +195,10 @@
             this.tabUpdateProcess.Controls.Add(this.tabCleanUp);
             this.tabUpdateProcess.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabUpdateProcess.ItemSize = new System.Drawing.Size(100, 40);
-            this.tabUpdateProcess.Location = new System.Drawing.Point(0, 28);
+            this.tabUpdateProcess.Location = new System.Drawing.Point(0, 53);
             this.tabUpdateProcess.Name = "tabUpdateProcess";
             this.tabUpdateProcess.SelectedIndex = 0;
-            this.tabUpdateProcess.Size = new System.Drawing.Size(768, 583);
+            this.tabUpdateProcess.Size = new System.Drawing.Size(768, 580);
             this.tabUpdateProcess.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabUpdateProcess.TabIndex = 0;
             // 
@@ -195,7 +209,7 @@
             this.tabTerminateProgress.Location = new System.Drawing.Point(4, 44);
             this.tabTerminateProgress.Name = "tabTerminateProgress";
             this.tabTerminateProgress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTerminateProgress.Size = new System.Drawing.Size(760, 535);
+            this.tabTerminateProgress.Size = new System.Drawing.Size(760, 532);
             this.tabTerminateProgress.TabIndex = 0;
             this.tabTerminateProgress.Text = "终止进程";
             this.tabTerminateProgress.UseVisualStyleBackColor = true;
@@ -340,7 +354,7 @@
             this.tabBackup.Location = new System.Drawing.Point(4, 44);
             this.tabBackup.Name = "tabBackup";
             this.tabBackup.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBackup.Size = new System.Drawing.Size(721, 516);
+            this.tabBackup.Size = new System.Drawing.Size(760, 532);
             this.tabBackup.TabIndex = 2;
             this.tabBackup.Text = "备份原始版本";
             this.tabBackup.UseVisualStyleBackColor = true;
@@ -483,7 +497,7 @@
             this.tabCleanOldVersion.Location = new System.Drawing.Point(4, 44);
             this.tabCleanOldVersion.Name = "tabCleanOldVersion";
             this.tabCleanOldVersion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCleanOldVersion.Size = new System.Drawing.Size(721, 516);
+            this.tabCleanOldVersion.Size = new System.Drawing.Size(760, 532);
             this.tabCleanOldVersion.TabIndex = 3;
             this.tabCleanOldVersion.Text = "清理原始版本";
             this.tabCleanOldVersion.UseVisualStyleBackColor = true;
@@ -562,7 +576,7 @@
             this.tabUpdateCopy.Location = new System.Drawing.Point(4, 44);
             this.tabUpdateCopy.Name = "tabUpdateCopy";
             this.tabUpdateCopy.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdateCopy.Size = new System.Drawing.Size(721, 516);
+            this.tabUpdateCopy.Size = new System.Drawing.Size(760, 532);
             this.tabUpdateCopy.TabIndex = 1;
             this.tabUpdateCopy.Text = "升级拷贝";
             this.tabUpdateCopy.UseVisualStyleBackColor = true;
@@ -663,7 +677,7 @@
             this.tabUpdateDB.Location = new System.Drawing.Point(4, 44);
             this.tabUpdateDB.Name = "tabUpdateDB";
             this.tabUpdateDB.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUpdateDB.Size = new System.Drawing.Size(721, 516);
+            this.tabUpdateDB.Size = new System.Drawing.Size(760, 532);
             this.tabUpdateDB.TabIndex = 4;
             this.tabUpdateDB.Text = "DB升级";
             this.tabUpdateDB.UseVisualStyleBackColor = true;
@@ -996,7 +1010,7 @@
             this.tabStartProgress.Location = new System.Drawing.Point(4, 44);
             this.tabStartProgress.Name = "tabStartProgress";
             this.tabStartProgress.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStartProgress.Size = new System.Drawing.Size(721, 516);
+            this.tabStartProgress.Size = new System.Drawing.Size(760, 532);
             this.tabStartProgress.TabIndex = 5;
             this.tabStartProgress.Text = "启动进程";
             this.tabStartProgress.UseVisualStyleBackColor = true;
@@ -1141,7 +1155,7 @@
             this.tabCleanUp.Controls.Add(this.groupBox13);
             this.tabCleanUp.Location = new System.Drawing.Point(4, 44);
             this.tabCleanUp.Name = "tabCleanUp";
-            this.tabCleanUp.Size = new System.Drawing.Size(721, 516);
+            this.tabCleanUp.Size = new System.Drawing.Size(760, 532);
             this.tabCleanUp.TabIndex = 6;
             this.tabCleanUp.Text = "清理临时文件";
             this.tabCleanUp.UseVisualStyleBackColor = true;
@@ -1284,7 +1298,7 @@
             this.menuItemOpenProject});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(768, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(764, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1294,43 +1308,142 @@
             this.menuItemNew,
             this.ToolStripMenuItem,
             this.menuItemSaveAs,
+            this.toolStripSeparator1,
+            this.menuItemCreateUpdatePackage,
+            this.toolStripSeparator2,
             this.menuItemQuit});
             this.menuItemOpenProject.Name = "menuItemOpenProject";
             this.menuItemOpenProject.Size = new System.Drawing.Size(44, 21);
-            this.menuItemOpenProject.Text = "文件";
+            this.menuItemOpenProject.Text = "工程";
             // 
             // menuItemNew
             // 
             this.menuItemNew.Name = "menuItemNew";
-            this.menuItemNew.Size = new System.Drawing.Size(152, 22);
-            this.menuItemNew.Text = "新建";
+            this.menuItemNew.Size = new System.Drawing.Size(136, 22);
+            this.menuItemNew.Text = "清空";
+            this.menuItemNew.Click += new System.EventHandler(this.menuItemNew_Click);
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.ToolStripMenuItem.Text = "打开";
+            this.ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // menuItemSaveAs
             // 
             this.menuItemSaveAs.Name = "menuItemSaveAs";
-            this.menuItemSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.menuItemSaveAs.Size = new System.Drawing.Size(136, 22);
             this.menuItemSaveAs.Text = "另存为";
+            this.menuItemSaveAs.Click += new System.EventHandler(this.menuItemSaveAs_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
+            // 
+            // menuItemCreateUpdatePackage
+            // 
+            this.menuItemCreateUpdatePackage.Name = "menuItemCreateUpdatePackage";
+            this.menuItemCreateUpdatePackage.Size = new System.Drawing.Size(152, 22);
+            this.menuItemCreateUpdatePackage.Text = "构建升级包";
+            this.menuItemCreateUpdatePackage.Click += new System.EventHandler(this.menuItemCreateUpdatePackage_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(133, 6);
             // 
             // menuItemQuit
             // 
             this.menuItemQuit.Name = "menuItemQuit";
-            this.menuItemQuit.Size = new System.Drawing.Size(152, 22);
+            this.menuItemQuit.Size = new System.Drawing.Size(136, 22);
             this.menuItemQuit.Text = "退出";
+            this.menuItemQuit.Click += new System.EventHandler(this.menuItemQuit_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 610);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(764, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(117, 17);
+            this.toolStripStatusLabel1.Text = "升级包制作（V1.0）";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripOpen,
+            this.toolStripSaveAs,
+            this.toolStripSeparator3,
+            this.toolStripCreateUpdatePackage,
+            this.toolStripProgressBarCreateUpdatePackage});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(764, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripOpen
+            // 
+            this.toolStripOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripOpen.Image")));
+            this.toolStripOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripOpen.Name = "toolStripOpen";
+            this.toolStripOpen.Size = new System.Drawing.Size(23, 22);
+            this.toolStripOpen.Text = "打开";
+            this.toolStripOpen.ToolTipText = "打开工程文件";
+            this.toolStripOpen.Click += new System.EventHandler(this.toolStripOpen_Click);
+            // 
+            // toolStripSaveAs
+            // 
+            this.toolStripSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSaveAs.Image")));
+            this.toolStripSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSaveAs.Name = "toolStripSaveAs";
+            this.toolStripSaveAs.Size = new System.Drawing.Size(23, 22);
+            this.toolStripSaveAs.Text = "另存";
+            this.toolStripSaveAs.ToolTipText = "另存工程";
+            this.toolStripSaveAs.Click += new System.EventHandler(this.toolStripSaveAs_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripCreateUpdatePackage
+            // 
+            this.toolStripCreateUpdatePackage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCreateUpdatePackage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripCreateUpdatePackage.Image")));
+            this.toolStripCreateUpdatePackage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripCreateUpdatePackage.Name = "toolStripCreateUpdatePackage";
+            this.toolStripCreateUpdatePackage.Size = new System.Drawing.Size(23, 22);
+            this.toolStripCreateUpdatePackage.Text = "构建升级包";
+            // 
+            // toolStripProgressBarCreateUpdatePackage
+            // 
+            this.toolStripProgressBarCreateUpdatePackage.Name = "toolStripProgressBarCreateUpdatePackage";
+            this.toolStripProgressBarCreateUpdatePackage.Size = new System.Drawing.Size(100, 22);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 623);
+            this.ClientSize = new System.Drawing.Size(764, 632);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabUpdateProcess);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(780, 670);
+            this.MinimumSize = new System.Drawing.Size(780, 670);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabUpdateProcess.ResumeLayout(false);
@@ -1367,6 +1480,10 @@
             this.groupBox13.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1493,6 +1610,17 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItemSaveAs;
         private System.Windows.Forms.ToolStripMenuItem menuItemQuit;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripOpen;
+        private System.Windows.Forms.ToolStripButton toolStripSaveAs;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCreateUpdatePackage;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton toolStripCreateUpdatePackage;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBarCreateUpdatePackage;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
