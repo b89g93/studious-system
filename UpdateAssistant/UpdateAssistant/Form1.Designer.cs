@@ -1345,7 +1345,7 @@
             // menuItemCreateUpdatePackage
             // 
             this.menuItemCreateUpdatePackage.Name = "menuItemCreateUpdatePackage";
-            this.menuItemCreateUpdatePackage.Size = new System.Drawing.Size(152, 22);
+            this.menuItemCreateUpdatePackage.Size = new System.Drawing.Size(136, 22);
             this.menuItemCreateUpdatePackage.Text = "构建升级包";
             this.menuItemCreateUpdatePackage.Click += new System.EventHandler(this.menuItemCreateUpdatePackage_Click);
             // 
@@ -1426,6 +1426,7 @@
             this.toolStripCreateUpdatePackage.Name = "toolStripCreateUpdatePackage";
             this.toolStripCreateUpdatePackage.Size = new System.Drawing.Size(23, 22);
             this.toolStripCreateUpdatePackage.Text = "构建升级包";
+            this.toolStripCreateUpdatePackage.Click += new System.EventHandler(this.toolStripCreateUpdatePackage_Click);
             // 
             // toolStripProgressBarCreateUpdatePackage
             // 

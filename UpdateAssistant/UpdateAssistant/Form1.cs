@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
+using System.Diagnostics;
 
 namespace UpdateAssistant
 {
@@ -19,6 +20,9 @@ namespace UpdateAssistant
         private ImageList m_fileImageList;        //系统提供的图标
         private ImageList m_imgList;              //文件夹图标
         private int m_sourceDirCount = 0;
+        private string COMPRESS_SCREPT_FILE = "temp.bat";
+
+        private UpdatePackageConfig config = new UpdatePackageConfig();
 
         public Form1()
         {
@@ -380,7 +384,7 @@ namespace UpdateAssistant
         private void menuItemSaveAs_Click(object sender, EventArgs e)
         {
             
-            UpdatePackageConfig config = new UpdatePackageConfig();
+            config = new UpdatePackageConfig();
 
             //需要结束的进程
             List<string> listStr = UpdateInfoList.GetListContents(listViewTermintProgress);
@@ -453,7 +457,7 @@ namespace UpdateAssistant
             sw.Close();
             fs.Close();
 
-            UpdatePackageConfig config = (UpdatePackageConfig)XmlUtil.Deserialize(typeof(UpdatePackageConfig), xml);
+            config = (UpdatePackageConfig)XmlUtil.Deserialize(typeof(UpdatePackageConfig), xml);
             if (config == null)
             {
                 MessageBox.Show("工程文件一毁坏！");
@@ -640,8 +644,99 @@ namespace UpdateAssistant
             menuItemSaveAs_Click(sender, e);
         }
 
+        private bool executeBatFile(string batFile)
+        {
+            Process proc = null;
+            try
+            {
+                proc = new Process();
+                proc.StartInfo.FileName = batFile;
+                proc.StartInfo.Arguments = string.Format("10");//this is argument
+                proc.StartInfo.CreateNoWindow = true;
+                proc.Start();
+                
+                proc.WaitForExit();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception Occurred :{0},{1}", ex.Message, ex.StackTrace.ToString());
+                return false;
+            }
+            return true;
+        }
         private void createCompressPackage(string packageName)
         {
+            bool bRet = createCompressScript(packageName);
+            if (bRet)
+            {
+                //直径打包脚本生成压缩包
+                executeBatFile(COMPRESS_SCREPT_FILE);
+            }
+            
+        }
+
+        private string getFileName(string path)
+        {
+            int index = path.LastIndexOf("\\");
+            if (index < 0)
+            {
+                return null;
+            }
+            return path.Substring(index+1);
+        }
+
+        private string getFilePath(string path)
+        {
+            int index = path.LastIndexOf("\\");
+            if (index < 0)
+            {
+                return null;
+            }
+            return path.Substring(0, index+1);
+        }
+
+        private bool createCompressScript(string packageName)
+        {
+            if (config.UpdatePackageContaint.Dirs.Length == 0 &&
+                config.UpdatePackageContaint.Files.Length == 0)
+            {
+                MessageBox.Show("内容列表为空");
+                return false;
+            }
+
+            string rarExe = Directory.GetCurrentDirectory() + "\\WinRAR\\Rar.exe";
+            string strContent = "";
+            foreach (string dir in config.UpdatePackageContaint.Dirs)
+            {
+                string rootDriver = dir.Substring(0, 2);
+                strContent += ("cd " + dir + "\\..");
+                strContent += ("\r\n");
+                strContent += (rootDriver + "\r\n");
+                strContent += (rarExe + " a " + packageName + " " + getFileName(dir));
+                strContent += ("\r\n");
+            }
+            foreach (string file in config.UpdatePackageContaint.Files)
+            {
+                string filePath = getFilePath(file);
+                if (filePath != null)
+                {
+                    string rootDriver = file.Substring(0, 2);
+                    strContent += ("cd " + filePath);
+                    strContent += ("\r\n");
+                    strContent += (rootDriver + "\r\n");
+                    strContent += (rarExe + " a " + packageName + " " + getFileName(file));
+                    strContent += ("\r\n");
+                }
+            }
+
+            FileStream tempScript = new FileStream(COMPRESS_SCREPT_FILE, FileMode.Create);
+            StreamWriter sw = new StreamWriter(tempScript, System.Text.Encoding.Default);
+            sw.Write(strContent);
+            sw.Close();
+            tempScript.Close();
+
+            return true;
+            
             
         }
 
@@ -657,9 +752,18 @@ namespace UpdateAssistant
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string updatePackageName = saveFileDialog.FileName;
-
+                createCompressPackage(updatePackageName);
             }
 
+        }
+
+        
+
+        private void toolStripCreateUpdatePackage_Click(object sender, EventArgs e)
+        {
+            //menuItemCreateUpdatePackage_Click(sender,e);
+            PythonScriptCreater.createScript();
+            
         }
 
     }
