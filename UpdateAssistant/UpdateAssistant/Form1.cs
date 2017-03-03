@@ -729,6 +729,31 @@ namespace UpdateAssistant
                 }
             }
 
+            foreach (string file in config.UpdateDBScriptFiles)
+            {
+                string filePath = getFilePath(file);
+                if (filePath != null)
+                {
+                    string rootDriver = file.Substring(0, 2);
+                    strContent += ("cd " + filePath);
+                    strContent += ("\r\n");
+                    strContent += (rootDriver + "\r\n");
+                    strContent += (rarExe + " a " + packageName + " " + getFileName(file));
+                    strContent += ("\r\n");
+                }
+            }
+
+            {
+                string filePath = Directory.GetCurrentDirectory();
+                string rootDriver = filePath.Substring(0, 2);
+                strContent += ("cd " + filePath);
+                strContent += ("\r\n");
+                strContent += (rootDriver + "\r\n");
+                strContent += (rarExe + " a " + packageName + " upgrade.py");
+                strContent += ("\r\n");
+            }
+            
+
             FileStream tempScript = new FileStream(COMPRESS_SCREPT_FILE, FileMode.Create);
             StreamWriter sw = new StreamWriter(tempScript, System.Text.Encoding.Default);
             sw.Write(strContent);
@@ -749,20 +774,21 @@ namespace UpdateAssistant
             saveFileDialog.FilterIndex = 2;
             saveFileDialog.RestoreDirectory = true;
 
+            PythonScriptCreater.createScript(config);
+
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string updatePackageName = saveFileDialog.FileName;
                 createCompressPackage(updatePackageName);
             }
-
         }
 
         
 
         private void toolStripCreateUpdatePackage_Click(object sender, EventArgs e)
         {
-            //menuItemCreateUpdatePackage_Click(sender,e);
-            PythonScriptCreater.createScript();
+            menuItemCreateUpdatePackage_Click(sender,e);
+            
             
         }
 
